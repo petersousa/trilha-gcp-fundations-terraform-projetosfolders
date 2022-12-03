@@ -1,5 +1,5 @@
 provider "google" {
-  project = "barbero-devops-iac"
+  project = "peterds-devops-iac"
   region  = "us-central1"
   zone    = "us-central1-c"
   credentials = "${file("serviceaccount.yaml")}"
@@ -7,7 +7,7 @@ provider "google" {
 
 resource "google_folder" "Financeiro" {
   display_name = "Financeiro"
-  parent       = "organizations/540829645030"
+  parent       = "##########"
 }
 
 resource "google_folder" "SalesForce" {
@@ -26,19 +26,19 @@ resource "google_folder" "Producao" {
 }
 
 
-resource "google_project" "barberosa2-salesforce-dev" {
+resource "google_project" "peterds-salesforce-dev" {
   name       = "SalesForce-Dev"
-  project_id = "barberosa2-salesforce-dev"
+  project_id = "peterds-salesforce-dev"
   folder_id  = google_folder.Desenvolvimento.name
   auto_create_network=false
-  billing_account = "018973-A8340F-83D8E5"
+  billing_account = "##########"
 
 }
 
-# resource "google_project" "barberosa-salesforce-prod" {
+# resource "google_project" "peterds-salesforce-prod" {
 #   name       = "SalesForce-Prod"
-#   project_id = "barberosa-salesforce-prod"
+#   project_id = "peterds-salesforce-prod"
 #   folder_id  = google_folder.Producao.name
 #   auto_create_network=false
-#   billing_account = "01B2C4-70459E-F53446"
+#   billing_account = "##########"
 # }
